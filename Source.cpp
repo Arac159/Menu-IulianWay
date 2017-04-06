@@ -1,23 +1,23 @@
 #include <stdio.h>
 
-void displayoption2menu()
+bool displayoption2menu()
 {
-
         printf("Option2 menu\n");
         printf("1. Option C\n");
         printf("2. Option D\n");
         printf("3. Back\n");
         printf("Please choose\n");
+        return true;
 
 }
-void displayoption1menu()
+bool displayoption1menu()
 {
-
         printf("Option1 menu\n");
         printf("1. Option A\n");
         printf("2. Option B\n");
         printf("3. Back\n");
         printf("Please choose\n");
+        return  true;
 
 }
 void displaymainmenu()
@@ -36,9 +36,38 @@ char selection()
     return c;
 }
 
+
+void returndisplayoption2menu()
+{
+    char c = selection();
+    if (c == '3')
+    {
+        displayoption2menu();
+    }
+
+
+}
+void returndisplayoption1menu()
+{
+    char c = selection();
+    if (c == '3')
+    {
+        displayoption1menu();
+    }
+
+
+}
+
 void getnewline()
 {
-    selection();
+    if (displayoption2menu() == true)
+    {
+        returndisplayoption2menu();
+    }
+    if (displayoption1menu() == true)
+    {
+        returndisplayoption1menu();
+    }
 }
 
 void main()
@@ -50,84 +79,14 @@ void main()
         if (c == '1')
         {
             displayoption1menu();
-            selection();
-            for (;;)
-            {
-                char c = selection();
-                if (c == '1')
-                {
-                    printf("Option A = Tomato\nPress 3 for Main Menu\n");
-                    selection();
-                    if (c == 3)
-                    {
-                        main();
-                    }
-                    if (c == '\n')
-                    {
-                        main();
-                    }
-                }
-                if (c == '2')
-                {
-                    printf("Option B = Potato\nPress 3 for Main Menu\n");
-                    selection();
-                    if (c == 3)
-                    {
-                        main();
-                    }
-                    if (c == '\n')
-                    {
-                        main();
-                    }
-                }
-                if (c == '3')
-                {
-                    main();
-                }
-            }
-        }
+         }
         if (c == '2')
         {
             displayoption2menu();
-            selection();
-            for (;;)
-            {
-                char c = selection();
-                if (c == '1')
-                {
-                    printf("Option A = Lyon\nPress 3 for Main Menu\n");
-                    selection();
-                    if (c == 3)
-                    {
-                        main();
-                    }
-                    if (c == '\n')
-                    {
-                        main();
-                    }
-                }
-                if (c == '2')
-                {
-                    printf("Option B = Goat\nPress 3 for Main Menu\n");
-                    selection();
-                    if (c == 3)
-                    {
-                        main();
-                    }
-                    if (c == '\n')
-                    {
-                        main();
-                    }
-                }
-                if (c == '3')
-                {
-                    main();
-                }
-            }
         }
         if (c == '3')
         {
-            break;
+                break;
         }
         if (c == '\n')
         {
